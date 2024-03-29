@@ -18,6 +18,7 @@ const signup = async (req, res, next) => {
     res.json({ error: false, contendio: result });
   } catch (error) {
     next(error)
+    console.log(error);
   }
 };
 

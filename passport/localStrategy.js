@@ -12,6 +12,7 @@ passport.use(
       secretOrKey: 'secreto',
     },
     async function (jwtPayload, done) {
+      console.log(jwtPayload)
       try {
         const user = await User.findById(jwtPayload.user);
         if (!user) {
@@ -34,14 +35,14 @@ passport.use(
       passwordField: 'password',
     },
     async function (email, password, done) {
-      
+
       try {
         let user = await User.findOne({ email }).select('+password');
         if (!user) {
           console.log('Usuario no encontrado');
           return done(null, false);
         }
-        
+
         if (!validoPass(password, user.password.hash, user.password.salt)) {
           console.log('Contraseña incorrecta');
           return done(null, false);

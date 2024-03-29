@@ -70,3 +70,48 @@ npm run dev
 | URL path                    | HTTP Method       | Response                          | Action                        |
 | :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
 | /api/upload     | POST               | CLOUDINARY_LINK                            | Upload Image to Cloudinary
+
+
+# API Routes
+
+Shopping or basketShopping routes
+
+URL PATH:
+
+/api (Final_Project_Server\app.js)
+
+
+RUTAS PARA ACCEDER A LOS INGREDIENTES DE TODOS LOS INGREDIENTES DE TODOS LOS USUARIOS 
+
+api/ingredients
+(Final_Project_Server\routes\index.routes.js) MIDDLEWARE()router.use
+
+
+/api/ingredients.get('') TODOS LOS INGREDIENTES EN LA BASE DE DATOS
+/api/ingredients.post('',{ name,quantity, measure,recipeFrom,}) AÑADE UN INGREDIENTE 
+/api/ingredients.delete('','AÑADE UN STRING ID')  ELIMINA EL INGREDIENTE RECIBIENDO IN ID
+
+(Final_Project_Server\routes\recipes.routes.js) RUTAS
+(Final_Project_Server\controllers\recipes.controller.js) FUNCIONES
+
+
+
+
+
+RUTAS PARA ACCEDER A LAS RECETAS CREADAS POR EL USUARIO
+
+api/recipes
+(Final_Project_Server\routes\index.routes.js) MIDDLEWARE router.use()
+
+
+
+
+RUTAS PARA ACCEDER A LOS INGREDIENTES DE LA LISTA DE LA COMPRA DE UN USUARIO
+
+api/user/getIngredients.get() ESPERA EL USER
+api/user/addIndredients/:ingredient_id.put() ESPERA UN ID EN PARAMS Y EL USER
+api/user/deleteIngredient/:ingredient_id.delete() ESPERA UN ID EN PARAMS Y EL USER
+
+
+api/user/likeRecipe/:recipe_id.put() ESPERA UN ID EN PARAMS Y EL USER
+api/user/dislikeRecipe/:recipe_id.put() ESPERA UN ID EN PARAMS Y EL USER

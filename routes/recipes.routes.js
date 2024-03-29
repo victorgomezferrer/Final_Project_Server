@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const {
-    getAllIngredients, addIngredient, deleteIngredient,
+    getAllRecipes, addRecipe, deleteRecipe
 } = require('../controllers/recipes.controller');
 
-router.get('/ingredients', getAllIngredients);
-router.post('/add', addIngredient)
-router.delete('/delete', deleteIngredient)
+router.get('/', getAllRecipes);
+router.post('/', addRecipe);
+router.delete('/', deleteRecipe);
 
 module.exports = router;
