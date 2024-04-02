@@ -32,16 +32,14 @@ class RecipesService extends AxiosConfig {
     return response.data
   }
 
-  async getRecipeByUri(uri) {
-
+  async getRecipeByUri(uris) {
+    const params = new URLSearchParams()
+    params.append('type', 'public')
+    params.append('app_id', 'e50bc045')
+    params.append('app_key', 'b574867775831885724b7dc588c5e125')
+    uris.forEach(uri => { params.append('uri', uri) });
     const response = await this.axios.get(`api/recipes/v2/by-uri`, {
-      params: {
-        'uri': `${uri}`,
-
-        'type': 'public',
-        'app_id': 'e50bc045',
-        'app_key': 'b574867775831885724b7dc588c5e125'
-      }
+      params
     },
     )
     return response.data

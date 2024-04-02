@@ -34,9 +34,10 @@ const addIngredient = async (req, res, next) => {
     } catch (err) { res.status(500).json(err) }
 }
 const deleteIngredient = async (req, res) => {
+    console.log(req.body._id)
     try {
         const ingredient = await Ingredients.findByIdAndDelete(req.body._id);
-        console.log('hola', req.body._id)
+
         res.status(200).json(ingredient);
     } catch (err) { res.status(500).json(err) }
 }

@@ -39,41 +39,6 @@ npm run dev
 
 # API Routes
 
-## **Restaurants routes**:
-
-| URL path                    | HTTP Method       | Response                          | Action                        |
-| :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
-| /api/shopping/list       | GET               | [restaurants]                     | Get all restaurants     |
-| /api/shopping/getOne/:restaurant_id            | GET               | {restaurant}                | Get one Restaurant     |
-| /api/shopping/create            | POST               | {createdRestaurant}                | Create Restaurant      |
-| /api/shopping/edit/:restaurant_id            | PUT               | {editedRestaurant}                | Edit one restaurant     |
-| /api/shopping/delete/:restaurant_id           | DELETE               | {msg: "Restaurant successfully deleted!" }                | Delete one restaurant     |
-
-## **User routes**:
-
-| URL path                    | HTTP Method       | Response                          | Action                        |
-| :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
-| /api/users/getFavoriteRestaurants              | GET               | [restaurants]                           | Get logged user's favorite restaurants |
-| /api/users/likeRestaurant/:restaurant_id              | PUT               | {updatedUser}                           | Like Restaurant |
-| /api/users/dislikeRestaurant/:restaurant_id              | PUT               | {updatedUser}                           | Dislike Restaurant |
-
-## **Auth routes**:
-
-| URL path                    | HTTP Method       | Response                          | Action                        |
-| :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
-| /api/auth/getLoggedUser     | GET               | {loggedUser}                            | Get Logged User             |
-| /api/auth/signup            | POST              | {createdUser}    | Create a new user             |
-| /api/auth/login             | POST              | {authToken}                       | Log user in             |
-
-## **Upload routes**:
-
-| URL path                    | HTTP Method       | Response                          | Action                        |
-| :--------------------------:|:-----------------:| :--------------------------------:| :----------------------------:|
-| /api/upload     | POST               | CLOUDINARY_LINK                            | Upload Image to Cloudinary
-
-
-# API Routes
-
 Shopping or basketShopping routes
 
 URL PATH:

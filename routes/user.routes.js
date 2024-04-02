@@ -12,7 +12,7 @@ const passport = require('passport');
 const router = Router();
 
 
-router.get(
+router.post(
   '/allData',
   passport.authenticate('jwt', { session: false }),
   allData

@@ -10,7 +10,10 @@ const allData = async (req, res, next) => {
     const { _id: user_id } = req.user;
 
     const user = await User.findById(user_id).populate('myBasketIngredients').populate('favoriteRecipes').exec();
+
+
     const uris = user.favoriteRecipes.map((recipe) => { return recipe.uri })
+
 
     const recipe = await recipesService.getRecipeByUri(uris)
     res.status(200).json({ user, recipe });
@@ -35,7 +38,7 @@ const getBasketIngredients = async (req, res, next) => {
 };
 
 const addBasketIngredients = async (req, res, next) => {
-
+  console.log('HOLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA')
   try {
     const { _id: user_id } = req.user;
     const {
@@ -68,7 +71,7 @@ const deleteBasketIngredients = async (req, res, next) => {
   try {
     const { _id: user_id } = req.user;
     const { _id } = req.body;
-
+    console.log(user_id, _id);
     const userUpdated = await User.findByIdAndUpdate(
       user_id,
       { $pull: { myBasketIngredients: _id } },
