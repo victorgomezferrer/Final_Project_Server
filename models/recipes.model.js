@@ -5,7 +5,7 @@ const recipesSchema = new Schema(
         label: {
             type: String,
             required: [true, "A Recipe name is required!"],
-            unique: true,
+
             trim: true
         },
         uri: {

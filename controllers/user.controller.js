@@ -2,14 +2,18 @@ const Ingredients = require('../models/ingredients.model');
 const Recipes = require('../models/recipes.model');
 const User = require('../models/user.model');
 
+const recipesService = require('../externalServices/services/recipes.service')
+
 
 const allData = async (req, res, next) => {
   try {
     const { _id: user_id } = req.user;
 
     const user = await User.findById(user_id).populate('myBasketIngredients').populate('favoriteRecipes').exec();
+    const uris = user.favoriteRecipes.map((recipe) => { return recipe.uri })
 
-    res.status(200).json(user);
+    const recipe = await recipesService.getRecipeByUri(uris)
+    res.status(200).json({ user, recipe });
   } catch (err) {
     next(err);
   }
