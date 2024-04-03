@@ -71,15 +71,15 @@ const deleteBasketIngredients = async (req, res, next) => {
   try {
     const { _id: user_id } = req.user;
     const { _id } = req.body;
-    console.log(user_id, _id);
+
     const userUpdated = await User.findByIdAndUpdate(
       user_id,
       { $pull: { myBasketIngredients: _id } },
       { new: true }
     );
     const deleteItem = await Ingredients.findByIdAndDelete(_id)
-    console.log(deleteItem)
-    res.status(200).json(userUpdated);
+
+    res.status(200).json({ userUpdated, deleteItem });
   } catch (err) {
     next(err);
   }

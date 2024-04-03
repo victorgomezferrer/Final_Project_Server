@@ -30,7 +30,7 @@ router.get(
 
 router.post('/addIngredients', passport.authenticate('jwt', { session: false }), addBasketIngredients);
 
-router.delete('/deleteIngredient', passport.authenticate('jwt', { session: false }),
+router.post('/deleteIngredient', passport.authenticate('jwt', { session: false }),
   deleteBasketIngredients);
 
 
